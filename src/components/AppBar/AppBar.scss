@@ -1,0 +1,17 @@
+.c-app-bar {
+  background: #66BB6A;
+  height: 64px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-left: 24px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 1.5em;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
