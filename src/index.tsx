@@ -12,7 +12,7 @@ const MOUNT_NODE = document.getElementById("root");
 let render = () => {
     ReactDOM.render(
         <div>
-            <AppBar title="TODO App"/>
+            <AppBar title="Todo App"/>
             <Router history={browserHistory}>
                 <Route path="/" component={Home}/>
             </Router>
