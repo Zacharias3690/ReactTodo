@@ -13,12 +13,14 @@ let render = () => {
     ReactDOM.render(
         <div>
             <AppBar title="Todo App"/>
-            <Router history={browserHistory}>
-                <Route path="/" component={Home}/>
-            </Router>
+            <div className="container">
+                <Router history={browserHistory}>
+                    <Route path="/" component={Home} todoItems={[]}/>
+                </Router>
+            </div>
         </div>,
         MOUNT_NODE
-    );
+    );  
 };
 
 if((module as any).hot) {

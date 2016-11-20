@@ -1,19 +1,29 @@
 import * as React from "react";
+import { TodoList } from "./components/TodoList";
+import { TodoItemProps } from "./components/TodoItem";
 
-export default class Home extends React.Component<void, void> {
+import '../../styles/components/_todo-list.scss';
+
+
+class HomeProps implements React.Props<Home> {
+    todoItems: TodoItemProps[];
+    route: any;
+}
+
+class TodoItem {
+    text: String;
+    isComplete: Boolean;
+}
+
+export default class Home extends React.Component<HomeProps, void> {
     render() {
         return (
             <div className="c-card">
                 <h1 className="c-card__title">My Todo List</h1>
                 <div className="c-card__body">
-                    <ul className="todo-list">
-                        <li className="todo-list__item">
-                            <input type="checkbox"/>
-                            <input type="text"/>
-                        </li>
-                    </ul>
+                    <TodoList todoItems={this.props.route.todoItems}></TodoList>
                 </div>
             </div>
-        )
+        );
     }
 }
