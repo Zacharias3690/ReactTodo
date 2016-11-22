@@ -4,6 +4,9 @@
   list-style: none;
 
   &__item {
+    margin-bottom: 16px;
+    display: flex;
+
     input[type="checkbox"] {
       margin-right: 16px;
       &:after {
@@ -26,14 +29,39 @@
 
     input[type="text"] {
       border: none;
+      flex-grow: 1;
       border-bottom: 1px solid #ddd;
       margin-bottom: 1px;
+      font-size: 20px;
+      padding-bottom: 4px;
 
       &:focus {
         outline: none;
-        padding-bottom: 0;
+        padding-bottom: 3px;
         border-bottom-width: 2px;
       }
+    }
+  }
+
+  &__new {
+    display: flex;
+    flex-direction: row;
+
+    input[type="text"] {
+      border: none;
+      border-bottom: 1px solid #ddd;
+      flex-grow: 1;
+      margin-right: 8px;
+    }
+
+    button {
+      flex-shrink: 0;
+      height: 100%;
+      background: #66BB6A;
+      color: white;
+      border: none;
+      border-radius: 2px;
+      padding: 8px 16px;
     }
   }
 }

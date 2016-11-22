@@ -15,7 +15,11 @@ let render = () => {
             <AppBar title="Todo App"/>
             <div className="container">
                 <Router history={browserHistory}>
-                    <Route path="/" component={Home} todoItems={[]}/>
+                    <Route path="/" component={Home} todoItems={[
+                    { text: 'test1', isComplete: false },
+                    { text: 'test2', isComplete: true },
+                    { text: 'test3', isComplete: false }
+                    ]}/>
                 </Router>
             </div>
         </div>,
