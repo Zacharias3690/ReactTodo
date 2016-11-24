@@ -1,6 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Router, Route, browserHistory } from "react-router";
+import { createStore } from "redux";
+import todoApp from "./reducers";
+import { Provider } from "react-redux";
 
 import './styles/main.scss';
 
@@ -9,9 +12,11 @@ import Home from "./routes/Home/Home";
 
 const MOUNT_NODE = document.getElementById("root");
 
+let store = createStore(todoApp);
+
 let render = () => {
     ReactDOM.render(
-        <div>
+        <Provider store={store}>
             <AppBar title="Todo App"/>
             <div className="container">
                 <Router history={browserHistory}>
@@ -22,7 +27,7 @@ let render = () => {
                     ]}/>
                 </Router>
             </div>
-        </div>,
+        </Provider>,
         MOUNT_NODE
     );  
 };
