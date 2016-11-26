@@ -12,20 +12,23 @@ import Home from "./routes/Home/Home";
 
 const MOUNT_NODE = document.getElementById("root");
 
-let store = createStore(todoApp);
+let store = createStore(
+    todoApp,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+console.log(store);
 
 let render = () => {
     ReactDOM.render(
         <Provider store={store}>
-            <AppBar title="Todo App"/>
-            <div className="container">
-                <Router history={browserHistory}>
-                    <Route path="/" component={Home} todoItems={[
-                    { text: 'test1', isComplete: false },
-                    { text: 'test2', isComplete: true },
-                    { text: 'test3', isComplete: false }
-                    ]}/>
-                </Router>
+            <div>
+                <AppBar title="Todo App"/>
+                <div className="container">
+                    <Router history={browserHistory}>
+                        <Route path="/" component={Home}/>
+                    </Router>
+                </div>
             </div>
         </Provider>,
         MOUNT_NODE

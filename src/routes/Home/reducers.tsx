@@ -1,20 +1,34 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, addTodo } from './actions';
+import {ADD_TODO, TOGGLE_TODO} from './actions';
 
-let initialState = {
+let initialState : any = {
     todos: []
-}
+};
 
-function todos(state = initialState, action) {
+function todos(state = initialState, action: any) : any {
     switch(action.type) {
         case ADD_TODO:
-            return [
-                ...state,
-                {
-                    text: action.text,
-                    isComplete: false
-                }
-            ];
+            return {
+                todos: [
+                    ...state.todos,
+                    {
+                        text: action.text,
+                        isComplete: false
+                    }
+                ]
+            };
+        case TOGGLE_TODO:
+            return Object.assign({}, state, {
+                todos: state.todos.map((todo, idx) => {
+                    if(idx === action.id) {
+                        return Object.assign({}, todo, {
+                            isComplete: !todo.isComplete
+                        });
+                    }
+
+                    return todo;
+                })
+            });
         default:
             return state;
     }
